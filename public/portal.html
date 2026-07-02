@@ -932,7 +932,7 @@ async function generatePresentation(data) {
 
 
 function buildSkillPrompt(data) {
-  const v = (sec, lbl) => (data.sections && data.sections[sec] && data.sections[sec].items ? data.sections[sec].items.find(function(i){return i.label===lbl}) || {} : {}).value || '\u2014';
+  const v = (sec, lbl) => data.sections?.[sec]?.items?.find(i => i.label === lbl)?.value || '\u2014';
   const cliente   = data.cliente  !== '\u2014' ? data.cliente  : 'Cliente';
   const proyecto  = data.proyecto !== '\u2014' ? data.proyecto : 'Wallet';
   const rubro = v(0,'Rubro / industria');
